@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=", initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>database</title>
+</head>
+<body>
+    <h1>THIS IS AN DATABASE PROJECT</h1>
+    {% if user.is_authenticated %}
+        <h1>{{user.username}}</h1>
+        <button><a href="logout">LOGOUT</a></button><br><br>
+    {% else %}    
+        <button><a href="register">REGISTER</a></button> <br> <br>
+        <button><a href="login">LOGIN</a></button> <br><br>
+    {% endif %}
+   <form action="save" method ="POST">
+    {% csrf_token %}
+       <input type=" text" name="name" placeholder ="NAME"><br><br>
+       <input type="submit">
+   </form>
+   <div>
+   {% for aa in us %}
+        <p>{{aa.name}}</p><br>
+   {% endfor %}
+</div>
+</body>
+</html>
